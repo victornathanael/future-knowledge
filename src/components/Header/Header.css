@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    height: 60px;
+    background: var(--neutral-08, #343a40);
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+#header-container {
+    display: flex;
+    width: 1524px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    background: var(--neutral-08, #343a40);
+}
+
+#future-knowledge-logo {
+    width: 120px;
+    height: 51px;
+    margin-left: 228px;
+    flex-shrink: 0;
+    background: var(--neutral-08, #343a40);
+}
+
+#profile-photo {
+    width: 40px;
+    height: 40px;
+    margin-right: 197px;
+    flex-shrink: 0;
+    border-radius: 40px;
+}
+
+#links-container {
+    display: flex;
+    margin-left: 435px;
+    margin-right: 65px;
+}
+
+p {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.014px;
+    width: 96px;
+    padding: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--neutral-08, #343a40);
+}
