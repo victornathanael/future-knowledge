@@ -11,7 +11,8 @@ footer {
 
 #footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 60%;
 }
 
 #future-knowledge-logo-footer {
@@ -23,7 +24,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 100px 0 0;
+    margin-top: 80px;
 }
 
 #info-site-links {
@@ -50,7 +51,7 @@ footer {
 
 #future-experience,
 #student-dashboard {
-    padding: 30px 80px 0 0;
+    padding: 30px 0px 0 0;
 }
 
 #future-experience ul,
@@ -93,7 +94,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0 0 80px;
+    padding: 30px 0 0 30px;
 }
 
 #social-media img {

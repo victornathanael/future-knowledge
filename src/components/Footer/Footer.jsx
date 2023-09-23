@@ -1,4 +1,7 @@
 import './Footer.css';
+
+import { Link } from 'react-router-dom';
+
 import fkLogoFooter from '../../assets/future-knowledge-logo-footer.png';
 import linkedinIcon from '../../assets/linkedin-icon.svg';
 import youtubeIcon from '../../assets/youtube-icon.svg';
@@ -28,7 +31,9 @@ export default function Footer() {
                     <ul>
                         <li>Aulas</li>
                         <li>Desafios</li>
-                        <li>Ranking</li>
+                        <Link to={'/ranking'}>
+                            <li>Ranking</li>
+                        </Link>
                         <li>Feedbacks</li>
                     </ul>
                 </div>
