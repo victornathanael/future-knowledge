@@ -1,0 +1,103 @@
+* {
+    list-style: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 277px;
+    background: #343a40;
+}
+
+#footer-container {
+    display: flex;
+    justify-content: center;
+}
+
+#future-knowledge-logo-footer {
+    width: 290px;
+    height: 123px;
+}
+
+#info-site {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 100px 0 0;
+}
+
+#info-site-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#info-site p {
+    padding: 10px 16px;
+}
+
+#info-site #info-site-links p {
+    color: var(--neutral-01, #f8f9fa);
+    font-family: Poppins;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.055px;
+    text-decoration-line: underline;
+}
+
+#future-experience,
+#student-dashboard {
+    padding: 30px 80px 0 0;
+}
+
+#future-experience ul,
+#student-dashboard ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#future-experience h4,
+#student-dashboard h4,
+#social-media h4 {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.024px;
+}
+
+#future-experience li,
+#student-dashboard li {
+    color: var(--neutral-01, #f8f9fa);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.024px;
+    text-decoration-line: underline;
+    display: inline-flex;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 0 80px;
+}
+
+#social-media img {
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+}
