@@ -1,14 +1,18 @@
 import './App.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Home/Home';
+import Ranking from './pages/Ranking/Ranking';
 
 function App() {
     return (
         <div id='App'>
-            <Header />
-            <Home />
-            <Footer />
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<Home />} path='/' exact />
+                    <Route element={<Ranking />} path='/ranking' />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }
