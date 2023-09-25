@@ -6,10 +6,13 @@ import { useQuery } from 'react-query';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import BackgroundRanking from '../../components/BackgroundRanking/BackgroundRanking';
-import ListItemUser from '../../components/ListItemUser/ListItemUser';
 
 import ellipse from '../../assets/ellipse.svg';
 import miniEllipse from '../../assets/mini-ellipse.svg';
+import HighlightBoard from '../../components/HighlightBoard/HighlightBoard';
+import TopTenBoard from '../../components/TopTenBoard/TopTenBoard';
+import RankPerStackBoard from '../../components/RankPerStackBoard/RankPerStackBoard';
+import RankTopWeekBoard from '../../components/RankTopWeekBoard/RankTopWeekBoard';
 
 function sortUsers(users) {
     return users?.sort((a, b) => b.points - a.points);
@@ -31,9 +34,9 @@ export default function Ranking() {
 
     const stacks = {
         design: 'design',
-        frontEnd: 'front-end',
-        backEnd: 'Doidão',
-        softwareDevelopment: 'software development',
+        frontEnd: 'Frontend',
+        backEnd: 'Backend',
+        Marketing: 'Marketing',
     };
 
     const top10StackFilter = 'Design';
@@ -43,77 +46,48 @@ export default function Ranking() {
             <Header />
             <main>
                 <BackgroundRanking />
-                <div id='ranking-container'>
+                <div id='highlights-of-week-container'>
                     <h1>RANKING</h1>
                     <h3>Sua pontuação atual:</h3>
                     <p>500pts</p>
                     <div id='highlights-of-week'>
                         <h3>Destaques da semana:</h3>
-                        <div id='highlight-board'>
-                            {getTopX(users, 4)?.map((user) => (
-                                <ListItemUser
-                                    key={user.id}
-                                    name={user.name}
-                                    stack={user.field}
-                                    image={ellipse}
-                                />
-                            ))}
-                        </div>
+                        <HighlightBoard users={users} getTopX={getTopX} ellipse={ellipse} />
                     </div>
                 </div>
                 <div id='line-ranking'>
                     <hr />
                 </div>
-                <div id='ranks'>
-                    <div id='top-ten-container'>
-                        <h3>Top 10 [{top10StackFilter}]</h3>
-                        <div id='top-ten-board'>
-                            {getTopX(usersByStack(users, top10StackFilter), 10)?.map(
-                                (user, index) => (
-                                    <ListItemUser
-                                        key={user.id}
-                                        rank={index + 1}
-                                        name={user.name}
-                                        points={user.points}
-                                        image={miniEllipse}
-                                    />
-                                )
-                            )}
+                <div id='ranks-container'>
+                    <div id='ranks'>
+                        <div id='top-ten-container'>
+                            <h3>Top 10 [{top10StackFilter}]</h3>
+                            <TopTenBoard
+                                getTopX={getTopX}
+                                usersByStack={usersByStack}
+                                miniEllipse={miniEllipse}
+                                top10StackFilter={top10StackFilter}
+                                users={users}
+                            />
                         </div>
-                    </div>
-                    <div id='ranks-stack-and-week-container'>
-                        <div id='rank-per-stack-container'>
-                            <h3>Os melhores de cada stack</h3>
-                            <div id='rank-per-stack'>
-                                {Object.keys(stacks).map((stack) => {
-                                    const user = (getTopX(usersByStack(users, stacks[stack]), 1) ||
-                                        [])[0];
-                                    if (!user) {
-                                        return null;
-                                    }
-                                    return (
-                                        <ListItemUser
-                                            key={stack}
-                                            name={user.name}
-                                            stack={user.field}
-                                            image={miniEllipse}
-                                        />
-                                    );
-                                })}
+                        <div id='ranks-stack-and-week-container'>
+                            <div id='rank-per-stack-container'>
+                                <h3>Os melhores de cada stack</h3>
+                                <RankPerStackBoard
+                                    stacks={stacks}
+                                    users={users}
+                                    getTopX={getTopX}
+                                    miniEllipse={miniEllipse}
+                                    usersByStack={usersByStack}
+                                />
                             </div>
-                        </div>
-                        <div id='rank-top-week-container'>
-                            <h3>Top 5 Semana</h3>
-                            <div id='rank-top-week'>
-                                {getTopX(users, 5)?.map((user, index) => (
-                                    <ListItemUser
-                                        key={user.id}
-                                        rank={index + 1}
-                                        name={user.name}
-                                        points={user.points}
-                                        image={miniEllipse}
-                                    />
-                                ))}
+                            <div id='rank-top-week-container'>
+                                <h3>Top 5 Semana</h3>
+                                <RankTopWeekBoard
+                                    getTopX={getTopX}
+                                    miniEllipse={miniEllipse}
+                                    users={users}
+                                />
                             </div>
                         </div>
                     </div>

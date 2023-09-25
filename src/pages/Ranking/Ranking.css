@@ -3,9 +3,17 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
-#ranking-container h1 {
+#highlights-of-week-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-start;
+}
+
+#highlights-of-week-container h1 {
     color: #fff;
     font-family: Poppins;
     font-size: 57px;
@@ -15,7 +23,7 @@ main {
     margin: 20px 0 50px 0;
 }
 
-#ranking-container > h3 {
+#highlights-of-week > h3 {
     color: #fff;
     font-family: Poppins;
     font-size: 36px;
@@ -24,7 +32,7 @@ main {
     line-height: 44px;
 }
 
-#ranking-container > p {
+#highlights-of-week-container > p {
     color: var(--primary-01, #ffed3c);
     font-family: Poppins;
     font-size: 57px;
@@ -36,7 +44,7 @@ main {
 
 /* highlight of the week */
 
-#highlights-of-week > h3 {
+#highlights-of-week-container > h3 {
     color: #fff;
     font-family: Poppins;
     font-size: 36px;
@@ -46,75 +54,16 @@ main {
     margin: 0 0 20px 10px;
 }
 
-#highlight-board {
-    display: flex;
-    padding: 32px 64px;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    backdrop-filter: blur(5px);
-    margin-bottom: 40px;
-    width: 90%;
-    background: linear-gradient(#27292b, #4b4e51) padding-box,
-        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
-    border-radius: 20px;
-    border: 2px solid transparent;
-}
-
 #people {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#highlight-board .list-item-user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* top ten */
 
-#highlight-board .list-item-user__image {
-    width: 224px;
-    height: 224px;
-    fill: #c4c4c4;
-}
-
-#highlight-board .list-item-user__name {
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40px;
-
-    max-width: 200px;
-    overflow: hidden;
-    text-wrap: nowrap;
-}
-
-#highlight-board .list-item-user__stack {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 32px;
-}
-
-/* rank design */
-
-#top-ten-board {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 32px;
-    align-items: flex-start;
-    gap: 10px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
-        rgba(248, 249, 250, 0.2);
-    backdrop-filter: blur(5px);
-    margin: 20px 0;
-    width: 80%;
-    background: linear-gradient(#27292b, #4b4e51) padding-box,
-        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    justify-content: space-evenly;
+#top-ten-container {
+    width: 100%;
 }
 
 #top-ten-container h3 {
@@ -125,12 +74,6 @@ main {
     font-weight: 400;
     line-height: 52px;
     margin-left: 20px;
-}
-
-#top-ten-board .list-item-user {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
 #line-ranking {
@@ -147,19 +90,8 @@ main {
 
 /* rank per stack */
 
-#rank-per-stack {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 32px;
-    align-items: flex-start;
-    gap: 10px;
-    backdrop-filter: blur(5px);
-    margin: 20px 0;
-    width: 90%;
-    background: linear-gradient(#27292b, #4b4e51) padding-box,
-        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
-    border-radius: 20px;
-    border: 2px solid transparent;
+#rank-per-stack-container {
+    width: 100%;
 }
 
 #rank-per-stack-container h3 {
@@ -171,14 +103,11 @@ main {
     line-height: 44px;
 }
 
-#rank-per-stack .list-item-user {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* rank by week */
+
+#rank-top-week-container {
     width: 100%;
 }
-
-/* rank by week */
 
 #rank-top-week-container h3 {
     color: #fff;
@@ -190,28 +119,54 @@ main {
     margin-bottom: 10px;
 }
 
-#rank-top-week {
-    display: inline-flex;
-    padding: 32px;
-    align-items: flex-start;
-    gap: 10px;
-    backdrop-filter: blur(5px);
-    flex-direction: column;
-    width: 90%;
-    background: linear-gradient(#27292b, #4b4e51) padding-box,
-        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
-    border-radius: 20px;
-    border: 2px solid transparent;
-}
+/* ranks container */
 
-#rank-top-week .list-item-user {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
+#ranks-container {
+    width: 60%;
+    margin-bottom: 10%;
 }
 
 #ranks {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 0 100px 80px;
+    grid-template-columns: 50% 50%;
+    justify-items: start;
+    width: 100%;
+}
+
+#ranks-stack-and-week-container {
+    width: 100%;
+}
+
+.list-item-user__rank {
+    max-width: 30px;
+}
+
+@media (max-width: 1660px) {
+    #ranks-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1240px) {
+    #ranks-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1080px) {
+    #ranks-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 725px) {
+    #highlights-of-week {
+        width: 70%;
+    }
+
+    #ranks {
+        display: grid;
+        grid-template-columns: 100%;
+        width: 90%;
+    }
 }
