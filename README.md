@@ -2,6 +2,8 @@
 
 O Future Knowledge é um projeto React desenvolvido com Vite que possui duas telas: Home e Ranking. Este aplicativo consome uma API externa para exibir informações relacionadas a pontos e classificações em quatro categorias diferentes.
 
+## Você pode conferir esse projeto clicando [aqui](https://future-knowledge.netlify.app/)
+
 ## Funcionalidades
 
 - **Destaques da Semana**: Exibe os melhores desempenhos da semana.
