@@ -2,17 +2,20 @@ header {
     display: flex;
     box-sizing: border-box;
     border-bottom: solid 1px #ffdf52;
+    width: 100%;
+    margin: auto;
+    background: var(--neutral-08, #343a40);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #header-container {
     display: flex;
     height: 60px;
-    width: 100%;
     justify-content: space-around;
     align-items: center;
-    background: var(--neutral-08, #343a40);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 20px;
+    padding-top: 20px;
+    width: 80%;
+    margin: auto;
 }
 
 #future-knowledge-logo {
@@ -75,7 +78,7 @@ header {
 
 .side-navbar-button-close {
     position: fixed;
-    top: 23px;
+    top: 28px;
     right: 25px;
     text-decoration: none;
     color: white;
@@ -138,5 +141,17 @@ header {
         background-color: #495057;
         z-index: 1;
         border: 1px solid #6c757d;
+    }
+}
+
+@media (max-width: 575px) {
+    #side-navbar {
+        width: 40%;
+    }
+}
+
+@media (max-width: 495px) {
+    #side-navbar {
+        width: 60%;
     }
 }
