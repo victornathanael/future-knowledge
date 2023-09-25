@@ -1,27 +1,42 @@
 import './Ranking.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import api from '../../services/api';
+import { useQuery } from 'react-query';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import BackgroundRanking from '../../components/BackgroundRanking/BackgroundRanking';
+import ListItemUser from '../../components/ListItemUser/ListItemUser';
 
 import ellipse from '../../assets/ellipse.svg';
 import miniEllipse from '../../assets/mini-ellipse.svg';
 
+function sortUsers(users) {
+    return users?.sort((a, b) => b.points - a.points);
+}
+
+function usersByStack(users, stack) {
+    return users?.filter((user) => user.field.toLowerCase() === stack.toLowerCase());
+}
+
+function getTopX(users, x) {
+    return sortUsers(users)?.slice(0, x);
+}
+
 export default function Ranking() {
-    const [users, setUsers] = useState();
-    let rankPosition = 1;
+    const { data: users } = useQuery('users', async () => {
+        const response = await api.get('/users');
+        return response.data;
+    });
 
-    useEffect(() => {
-        api.get('/users')
-            .then((response) => setUsers(response.data))
-            .catch((error) => console.error(`Erro: ${error}`));
-    }, []);
+    const stacks = {
+        design: 'design',
+        frontEnd: 'front-end',
+        backEnd: 'Doidão',
+        softwareDevelopment: 'software development',
+    };
 
-    function sortUsers(users) {
-        return users?.sort((a, b) => b.points - a.points);
-    }
+    const top10StackFilter = 'Design';
 
     return (
         <div>
@@ -35,37 +50,34 @@ export default function Ranking() {
                     <div id='highlights-of-week'>
                         <h3>Destaques da semana:</h3>
                         <div id='highlight-board'>
-                            {sortUsers(users)?.map((user) => (
-                                <div key={user.id} id='person-highlight'>
-                                    <img
-                                        className='ellipse'
-                                        src={ellipse}
-                                        alt='person face image'
-                                    />
-                                    <p className='name'>{user.name}</p>
-                                    <p className='stack'>[{user.field}]</p>
-                                </div>
+                            {getTopX(users, 4)?.map((user) => (
+                                <ListItemUser
+                                    key={user.id}
+                                    name={user.name}
+                                    stack={user.field}
+                                    image={ellipse}
+                                />
                             ))}
                         </div>
                     </div>
                 </div>
-                <div id='line'>
+                <div id='line-ranking'>
                     <hr />
                 </div>
                 <div id='ranks'>
                     <div id='top-ten-container'>
-                        <h3>Top 10 [Design]</h3>
+                        <h3>Top 10 [{top10StackFilter}]</h3>
                         <div id='top-ten-board'>
-                            {sortUsers(users)?.map(
-                                (user) =>
-                                    user.field.toLowerCase() == 'design' && (
-                                        <div key={user.id} className='person-top-design'>
-                                            <p className='number-rank'>{rankPosition++}º</p>
-                                            <img src={miniEllipse} alt='person face image' />
-                                            <p className='full-name-rank'>{user.name}</p>
-                                            <p className='points-rank'>{user.points}pts</p>
-                                        </div>
-                                    )
+                            {getTopX(usersByStack(users, top10StackFilter), 10)?.map(
+                                (user, index) => (
+                                    <ListItemUser
+                                        key={user.id}
+                                        rank={index + 1}
+                                        name={user.name}
+                                        points={user.points}
+                                        image={miniEllipse}
+                                    />
+                                )
                             )}
                         </div>
                     </div>
@@ -73,38 +85,34 @@ export default function Ranking() {
                         <div id='rank-per-stack-container'>
                             <h3>Os melhores de cada stack</h3>
                             <div id='rank-per-stack'>
-                                <div className='person-top-design'>
-                                    <img src={miniEllipse} alt='person face image' />
-                                    <p className='full-name-rank-per-stack'>Nome Sobrenome</p>
-                                    <p className='points-rank-per-stack'>[STACK]</p>
-                                </div>
-                                <div className='person-top-design'>
-                                    <img src={miniEllipse} alt='person face image' />
-                                    <p className='full-name-rank-per-stack'>Nome Sobrenome</p>
-                                    <p className='points-rank-per-stack'>[STACK]</p>
-                                </div>
-                                <div className='person-top-design'>
-                                    <img src={miniEllipse} alt='person face image' />
-                                    <p className='full-name-rank-per-stack'>Nome Sobrenome</p>
-                                    <p className='points-rank-per-stack'>[STACK]</p>
-                                </div>
-                                <div className='person-top-design'>
-                                    <img src={miniEllipse} alt='person face image' />
-                                    <p className='full-name-rank-per-stack'>Nome Sobrenome</p>
-                                    <p className='points-rank-per-stack'>[STACK]</p>
-                                </div>
+                                {Object.keys(stacks).map((stack) => {
+                                    const user = (getTopX(usersByStack(users, stacks[stack]), 1) ||
+                                        [])[0];
+                                    if (!user) {
+                                        return null;
+                                    }
+                                    return (
+                                        <ListItemUser
+                                            key={stack}
+                                            name={user.name}
+                                            stack={user.field}
+                                            image={miniEllipse}
+                                        />
+                                    );
+                                })}
                             </div>
                         </div>
                         <div id='rank-top-week-container'>
                             <h3>Top 5 Semana</h3>
                             <div id='rank-top-week'>
-                                {sortUsers(users)?.map((user, index) => (
-                                    <div key={user.id} className='person-top-week'>
-                                        <p className='number-rank-week'>{index + 1}º</p>
-                                        <img src={miniEllipse} alt='person face image' />
-                                        <p className='full-name-rank-week'>{user.name}</p>
-                                        <p className='points-rank-week'>{user.points}pts</p>
-                                    </div>
+                                {getTopX(users, 5)?.map((user, index) => (
+                                    <ListItemUser
+                                        key={user.id}
+                                        rank={index + 1}
+                                        name={user.name}
+                                        points={user.points}
+                                        image={miniEllipse}
+                                    />
                                 ))}
                             </div>
                         </div>
