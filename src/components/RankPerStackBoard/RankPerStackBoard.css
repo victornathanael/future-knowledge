@@ -1,0 +1,36 @@
+#rank-per-stack-board {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 32px;
+    align-items: flex-start;
+    gap: 10px;
+    backdrop-filter: blur(5px);
+    margin: 20px 0;
+    background: linear-gradient(#27292b, #4b4e51) padding-box,
+        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    width: 87%;
+}
+
+#rank-per-stack-board .list-item-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#rank-per-stack-board .list-item-user__name {
+    font-size: 140%;
+}
+
+#rank-per-stack-board .list-item-user__points {
+    font-size: 110%;
+}
+
+@media (max-width: 880px) {
+    #rank-per-stack-board .list-item-user__name,
+    #rank-per-stack-board .list-item-user__stack {
+        font-size: 130%;
+    }
+}
