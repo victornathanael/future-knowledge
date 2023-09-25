@@ -16,7 +16,7 @@ O Future Knowledge é um projeto React desenvolvido com Vite que possui duas tel
 1. Clone este repositório para sua máquina local:
 
    ```bash
-   git clone https://github.com/seu-usuario/future-knowledge.git
+   git clone https://github.com/victornathanael/future-knowledge.git
 2. Navegue até a pasta do projeto:
 ```
 cd future-knowledge
