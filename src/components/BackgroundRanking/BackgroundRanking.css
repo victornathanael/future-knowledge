@@ -1,11 +1,11 @@
-#wavy-line-purple-ranking {
+#wavy-line-yellow-ranking-top {
     width: 50%;
     height: 80px;
     flex-shrink: 0;
     z-index: -1;
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 110px;
 }
 
 #yellow-circle-ranking {
@@ -34,12 +34,12 @@
     width: 30%;
     height: 144px;
     flex-shrink: 0;
-    left: 20px;
-    margin-top: -75px;
+    left: 25px;
+    margin-top: -240px;
     z-index: -1;
 }
 
-#wavy-line-yellow-ranking {
+#wavy-line-yellow-ranking-bottom {
     position: absolute;
     width: 50%;
     height: 80px;
@@ -48,14 +48,4 @@
     position: absolute;
     left: 20px;
     margin-top: 620px;
-}
-
-#wavy-line-yellow-top-ranking {
-    width: 50%;
-    height: 80px;
-    flex-shrink: 0;
-    z-index: -1;
-    position: absolute;
-    right: 0;
-    top: 100px;
 }

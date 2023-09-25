@@ -5,7 +5,7 @@
     z-index: -1;
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 110px;
 }
 
 #yellow-circle-home {
@@ -14,19 +14,18 @@
     flex-shrink: 0;
     z-index: -1;
     position: absolute;
-    left: 25px;
+    left: 7px;
     top: 200px;
 }
 
 #white-circle-home {
-    position: absolute;
     height: 221px;
     width: 30%;
     flex-shrink: 0;
     z-index: -1;
     position: absolute;
     right: 0;
-    margin-top: 150px;
+    margin-top: 110px;
 }
 
 #triangle-purple-home {
@@ -46,6 +45,6 @@
     flex-shrink: 0;
     z-index: -1;
     position: absolute;
-    left: 0;
+    left: 5px;
     margin-top: 1000px;
 }
