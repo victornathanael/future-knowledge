@@ -1,0 +1,40 @@
+#rank-top-week-board {
+    display: inline-flex;
+    padding: 32px;
+    align-items: flex-start;
+    gap: 10px;
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+    background: linear-gradient(#27292b, #4b4e51) padding-box,
+        linear-gradient(to right, #ffed3c, #ffdbff33, #8d11a6) border-box;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    width: 87%;
+}
+
+#rank-top-week-board .list-item-user {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#rank-top-week-board .list-item-user__name {
+    font-size: 140%;
+}
+
+#rank-top-week-board .list-item-user__points {
+    font-size: 110%;
+}
+
+@media (max-width: 880px) {
+    #rank-top-week-board .list-item-user__name,
+    #rank-top-week-board .list-item-user__points,
+    #rank-top-week-board .list-item-user__rank {
+        font-size: 120%;
+    }
+
+    #rank-top-week-board .list-item-user__image {
+        width: 18%;
+    }
+}
