@@ -11,6 +11,10 @@
     text-wrap: nowrap;
 }
 
+.list-item-user__rank {
+    width: 30px;
+}
+
 .list-item-user__rank,
 .list-item-user__points {
     color: #fff;
