@@ -31,9 +31,11 @@ export default function Footer() {
                     <ul>
                         <li>Aulas</li>
                         <li>Desafios</li>
-                        <Link to={'/ranking'}>
-                            <li>Ranking</li>
-                        </Link>
+                        <li>
+                            <Link to={'/ranking'} className='ranking-text-footer'>
+                                Ranking
+                            </Link>
+                        </li>
                         <li>Feedbacks</li>
                     </ul>
                 </div>

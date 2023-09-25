@@ -5,19 +5,21 @@
 footer {
     display: flex;
     justify-content: center;
-    height: 277px;
     background: #343a40;
+    width: 100%;
+    height: 100%;
 }
 
 #footer-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     justify-content: space-evenly;
-    width: 60%;
+    width: 100%;
 }
 
 #future-knowledge-logo-footer {
-    width: 290px;
-    height: 123px;
+    width: 80%;
+    height: 60%;
 }
 
 #info-site {
@@ -101,4 +103,23 @@ footer {
     width: 24px;
     height: 24px;
     padding: 10px;
+}
+
+.ranking-text-footer {
+    color: #fff;
+}
+
+.ranking-text-footer:hover {
+    color: black;
+}
+
+@media (max-width: 575px) {
+    #footer-container {
+        grid-template-columns: none;
+        justify-items: start;
+    }
+
+    #social-media {
+        padding: 30px 0 0 0;
+    }
 }
