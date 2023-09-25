@@ -20,17 +20,17 @@ export default function Home() {
                         <h2>Continue assistindo:</h2>
                         <div id='video-player'>
                             <img id='video' src={videoImage} alt='video player' />
-                            <img id='button-player' src={playerButton} alt='player button' />
+                            <img id='player-button' src={playerButton} alt='player button' />
                         </div>
                     </div>
                 </div>
-                <div id='line'>
+                <div id='line-home'>
                     <hr />
                 </div>
                 <div id='recent-notices'>
                     <div id='notices'>
                         <h3>Avisos recentes</h3>
-                        <div id='notice1'>
+                        <div className='notice-card'>
                             <div id='profile'>
                                 <img src={noticeGirlImage} alt='picture of a girl' />
                                 <p id='name'>Nome [Função]</p>
@@ -48,7 +48,7 @@ export default function Home() {
                             <p id='date'>Data</p>
                             <p id='see-more'>Ver mais</p>
                         </div>
-                        <div id='notice2'>
+                        <div className='notice-card'>
                             <div id='profile'>
                                 <img src={noticeGirlImage} alt='picture of a girl' />
                                 <p id='name'>Nome [Função]</p>
