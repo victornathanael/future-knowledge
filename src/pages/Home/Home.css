@@ -201,3 +201,9 @@ main {
     border-radius: 20px;
     border: 2px solid var(--neutral-06, #6c757d);
 }
+
+@media (max-width: 500px) {
+    .notice-card {
+        align-items: center;
+    }
+}
